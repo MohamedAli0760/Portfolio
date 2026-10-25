@@ -11,6 +11,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth; /* This makes the page scroll smoothly */
         }
 
         body {
@@ -22,7 +23,7 @@
         /* --- NAVIGATION BAR --- */
         nav {
             background-color: #fff;
-            padding: 20px 0;
+            padding: 20px 40px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
@@ -33,8 +34,19 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            justify-content: space-between; /* Pushes name to left, links to right */
+            align-items: center;
+        }
+
+        .nav-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0f172a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
             flex-wrap: wrap;
         }
 
@@ -43,41 +55,52 @@
             color: #5d6d7e;
             font-weight: 600;
             font-size: 1rem;
-            cursor: pointer;
             transition: color 0.3s;
         }
 
-        .nav-link:hover {
-            color: #2563eb;
-        }
-
-        .nav-link.active {
-            color: #2563eb;
+        .nav-link:hover, .nav-link.active {
+            color: #2563eb; /* Bright Blue */
         }
 
         /* --- MAIN CONTENT AREA --- */
         .container {
             max-width: 1000px;
-            margin: 60px auto;
+            margin: 0 auto;
             padding: 0 20px;
         }
 
+        /* Styles for the sections so they have space between them */
         section {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
+            padding: 80px 0;
+            border-bottom: 1px solid #e2e8f0;
+            min-height: 50vh; /* Ensures sections are long enough to scroll to */
         }
 
-        section.active {
-            display: block;
+        section:last-child {
+            border-bottom: none;
         }
 
-        /* --- HERO SECTION --- */
-        h1.hero-title {
+        /* --- HERO SECTION (Home) --- */
+        .hello-text {
             color: #2563eb;
-            font-size: 2.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        h1.hero-title {
+            color: #0f172a; /* Darker for the name */
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        h2.hero-subtitle {
+            color: #2563eb;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 25px;
-            letter-spacing: -0.5px;
         }
 
         p.hero-description {
@@ -85,9 +108,47 @@
             font-size: 1.125rem;
             line-height: 1.8;
             max-width: 800px;
+            margin-bottom: 40px;
         }
 
-        /* --- SKILLS SECTION --- */
+        /* --- BUTTONS --- */
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0f2fe;
+        }
+
+        /* --- GENERAL STYLES FOR SECTIONS --- */
         .section-title-large {
             font-size: 2.5rem;
             font-weight: 800;
@@ -95,6 +156,15 @@
             margin-bottom: 40px;
         }
 
+        h2.section-heading {
+            color: #2563eb;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- SKILLS SECTION --- */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -144,26 +214,22 @@
             font-weight: 500;
         }
 
-        /* --- GENERAL STYLES --- */
-        h2 {
-            color: #2563eb;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 10px;
-        }
-
+        /* --- OTHER CARDS (Projects, Experience, etc.) --- */
         .card {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
         }
+
     </style>
 </head>
 <body>
@@ -171,15 +237,20 @@
     <!-- NAVIGATION BAR -->
     <nav>
         <div class="nav-container">
-            <!-- Fixed Home link to point directly to your GitHub Pages URL -->
-            <a class="nav-link active" href="https://MohamedAli0760.github.io/Portfolio/">Home</a>
-            <a class="nav-link" onclick="showSection('about')">About</a>
-            <a class="nav-link" onclick="showSection('skills')">Skills</a>
-            <a class="nav-link" onclick="showSection('projects')">Projects</a>
-            <a class="nav-link" onclick="showSection('experience')">Experience</a>
-            <a class="nav-link" onclick="showSection('education')">Education</a>
-            <a class="nav-link" onclick="showSection('awards')">Awards</a>
-            <a class="nav-link" onclick="showSection('contact')">Contact</a>
+            <!-- 1. Added your name to the left -->
+            <div class="nav-name">Mohamed Ali</div>
+            
+            <div class="nav-links">
+                <!-- Changed links to work as anchor scrolls -->
+                <a class="nav-link active" href="#home">Home</a>
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#skills">Skills</a>
+                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="#experience">Experience</a>
+                <a class="nav-link" href="#education">Education</a>
+                <a class="nav-link" href="#awards">Awards</a>
+                <a class="nav-link" href="#contact">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -187,24 +258,39 @@
     <div class="container">
 
         <!-- HOME SECTION -->
-        <section id="home" class="active">
-            <h1 class="hero-title">Cybersecurity & AI Student</h1>
+        <section id="home">
+            <!-- 2. Added Hello and Name here -->
+            <div class="hello-text">Hello, I'm</div>
+            <h1 class="hero-title">Mohamed Ali</h1>
+            <h2 class="hero-subtitle">Cybersecurity & AI Student</h2>
+            
             <p class="hero-description">
                 Computer Engineering Technology graduate with hands-on experience in 
                 software development, networking, computer hardware, and embedded 
                 systems, currently pursuing Cybersecurity and AI studies.
             </p>
+
+            <!-- 2. Added Buttons that scroll to the correct sections -->
+            <div class="button-group">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
         </section>
 
         <!-- ABOUT SECTION -->
         <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I am a passionate technology enthusiast bridging the gap between hardware and software. 
-               With a background in Computer Engineering Technology, I love solving complex problems and building secure systems.</p>
+            <h2 class="section-heading">About Me</h2>
+            <h2 class="section-title-large">Who I Am</h2>
+            <p style="font-size: 1.1rem; color: #4b5563; max-width: 800px;">
+                Hello! I am a passionate technology enthusiast bridging the gap between hardware and software. 
+                With a background in Computer Engineering Technology, I love solving complex problems and building secure systems. 
+                I am constantly learning and adapting to new technologies in the cybersecurity and AI space.
+            </p>
         </section>
 
         <!-- SKILLS SECTION -->
         <section id="skills">
+            <h2 class="section-heading">Technical Skills</h2>
             <h2 class="section-title-large">What I Work With</h2>
             
             <div class="skills-grid">
@@ -270,7 +356,8 @@
 
         <!-- PROJECTS SECTION -->
         <section id="projects">
-            <h2>Projects</h2>
+            <h2 class="section-heading">My Work</h2>
+            <h2 class="section-title-large">Featured Projects</h2>
             <div class="card">
                 <h3>Project 1: IoT Security Device</h3>
                 <p>Designed a home security sensor using Raspberry Pi that detects motion and sends alerts to a mobile app.</p>
@@ -283,7 +370,8 @@
 
         <!-- EXPERIENCE SECTION -->
         <section id="experience">
-            <h2>Experience</h2>
+            <h2 class="section-heading">Experience</h2>
+            <h2 class="section-title-large">Where I've Worked</h2>
             <div class="card">
                 <h3>IT Support Intern</h3>
                 <p>Troubleshot network connectivity issues and maintained hardware inventories.</p>
@@ -292,7 +380,8 @@
 
         <!-- EDUCATION SECTION -->
         <section id="education">
-            <h2>Education</h2>
+            <h2 class="section-heading">Education</h2>
+            <h2 class="section-title-large">My Academic Background</h2>
             <div class="card">
                 <h3>B.S. Computer Engineering Technology</h3>
                 <p>Graduated with honors. Focus on Embedded Systems and Networking.</p>
@@ -301,7 +390,8 @@
 
         <!-- AWARDS SECTION -->
         <section id="awards">
-            <h2>Awards</h2>
+            <h2 class="section-heading">Awards</h2>
+            <h2 class="section-title-large">Achievements</h2>
             <div class="card">
                 <p>🏆 Dean's List (2021-2023)</p>
                 <p>🏆 Best Capstone Project Nominee</p>
@@ -310,7 +400,8 @@
 
         <!-- CONTACT SECTION -->
         <section id="contact">
-            <h2>Contact Me</h2>
+            <h2 class="section-heading">Contact</h2>
+            <h2 class="section-title-large">Get In Touch</h2>
             <div class="card">
                 <p>Email: yourname@example.com</p>
                 <p>LinkedIn: linkedin.com/in/yourprofile</p>
@@ -322,32 +413,28 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('section');
+        // This script simply highlights the correct menu item when you scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
             sections.forEach(section => {
-                section.classList.remove('active');
+                const sectionTop = section.offsetTop;
+                // Adjust the offset to trigger the highlight correctly
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
             });
 
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-
-            const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
             });
-            
-            // Find the clicked link by checking the onclick attribute
-            const clickedLink = Array.from(navLinks).find(link => 
-                link.getAttribute('onclick') && link.getAttribute('onclick').includes(sectionId)
-            );
-            if (clickedLink) {
-                clickedLink.classList.add('active');
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        });
     </script>
 </body>
 </html>
