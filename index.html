@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Ali - Portfolio</title>
+    <style>
+        /* --- RESET & BASIC STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        nav {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #5d6d7e;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
+        }
+
+        .nav-link.active {
+            color: #2563eb;
+        }
+
+        /* --- MAIN CONTENT AREA --- */
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* --- HERO SECTION --- */
+        h1.hero-title {
+            color: #2563eb;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        p.hero-description {
+            color: #4b5563;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        /* --- SKILLS SECTION --- */
+        .section-title-large {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 40px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: #e0f2fe;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.25rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- GENERAL STYLES --- */
+        h2 {
+            color: #2563eb;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <div class="nav-container">
+            <!-- Fixed Home link to point directly to your GitHub Pages URL -->
+            <a class="nav-link active" href="https://MohamedAli0760.github.io/Portfolio/">Home</a>
+            <a class="nav-link" onclick="showSection('about')">About</a>
+            <a class="nav-link" onclick="showSection('skills')">Skills</a>
+            <a class="nav-link" onclick="showSection('projects')">Projects</a>
+            <a class="nav-link" onclick="showSection('experience')">Experience</a>
+            <a class="nav-link" onclick="showSection('education')">Education</a>
+            <a class="nav-link" onclick="showSection('awards')">Awards</a>
+            <a class="nav-link" onclick="showSection('contact')">Contact</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <!-- HOME SECTION -->
+        <section id="home" class="active">
+            <h1 class="hero-title">Cybersecurity & AI Student</h1>
+            <p class="hero-description">
+                Computer Engineering Technology graduate with hands-on experience in 
+                software development, networking, computer hardware, and embedded 
+                systems, currently pursuing Cybersecurity and AI studies.
+            </p>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I am a passionate technology enthusiast bridging the gap between hardware and software. 
+               With a background in Computer Engineering Technology, I love solving complex problems and building secure systems.</p>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <h2 class="section-title-large">What I Work With</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="icon-box">💻</div>
+                    <h3>Programming & Software</h3>
+                    <div class="tags-container">
+                        <span class="tag">Java</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">C</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Android Development</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon-box">🌐</div>
+                    <h3>Networking & Systems</h3>
+                    <div class="tags-container">
+                        <span class="tag">TCP/IP</span>
+                        <span class="tag">VLAN</span>
+                        <span class="tag">OSPF</span>
+                        <span class="tag">DHCP</span>
+                        <span class="tag">ACL</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Windows</span>
+                        <span class="tag">VMware</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon-box">🔧</div>
+                    <h3>Hardware & Embedded</h3>
+                    <div class="tags-container">
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">FPGA</span>
+                        <span class="tag">VHDL</span>
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Sensors</span>
+                        <span class="tag">Computer Hardware</span>
+                        <span class="tag">Embedded Systems</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon-box">🤖</div>
+                    <h3>AI & Development Tools</h3>
+                    <div class="tags-container">
+                        <span class="tag">MoveNet</span>
+                        <span class="tag">TensorFlow Lite</span>
+                        <span class="tag">Coral USB Accelerator</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Android Studio</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">Cisco Packet Tracer</span>
+                        <span class="tag">Vivado</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="card">
+                <h3>Project 1: IoT Security Device</h3>
+                <p>Designed a home security sensor using Raspberry Pi that detects motion and sends alerts to a mobile app.</p>
+            </div>
+            <div class="card">
+                <h3>Project 2: AI Image Classifier</h3>
+                <p>Built a Python script using TensorFlow to classify images of hardware components.</p>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="card">
+                <h3>IT Support Intern</h3>
+                <p>Troubleshot network connectivity issues and maintained hardware inventories.</p>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="card">
+                <h3>B.S. Computer Engineering Technology</h3>
+                <p>Graduated with honors. Focus on Embedded Systems and Networking.</p>
+            </div>
+        </section>
+
+        <!-- AWARDS SECTION -->
+        <section id="awards">
+            <h2>Awards</h2>
+            <div class="card">
+                <p>🏆 Dean's List (2021-2023)</p>
+                <p>🏆 Best Capstone Project Nominee</p>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="card">
+                <p>Email: yourname@example.com</p>
+                <p>LinkedIn: linkedin.com/in/yourprofile</p>
+                <p>GitHub: github.com/MohamedAli0760</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find the clicked link by checking the onclick attribute
+            const clickedLink = Array.from(navLinks).find(link => 
+                link.getAttribute('onclick') && link.getAttribute('onclick').includes(sectionId)
+            );
+            if (clickedLink) {
+                clickedLink.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
