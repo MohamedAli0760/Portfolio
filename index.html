@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth; /* This makes the page scroll smoothly */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -34,7 +34,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between; /* Pushes name to left, links to right */
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -59,7 +59,7 @@
         }
 
         .nav-link:hover, .nav-link.active {
-            color: #2563eb; /* Bright Blue */
+            color: #2563eb;
         }
 
         /* --- MAIN CONTENT AREA --- */
@@ -69,11 +69,10 @@
             padding: 0 20px;
         }
 
-        /* Styles for the sections so they have space between them */
         section {
             padding: 80px 0;
             border-bottom: 1px solid #e2e8f0;
-            min-height: 50vh; /* Ensures sections are long enough to scroll to */
+            min-height: 40vh;
         }
 
         section:last-child {
@@ -89,7 +88,7 @@
         }
 
         h1.hero-title {
-            color: #0f172a; /* Darker for the name */
+            color: #0f172a;
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 20px;
@@ -214,7 +213,7 @@
             font-weight: 500;
         }
 
-        /* --- OTHER CARDS (Projects, Experience, etc.) --- */
+        /* --- OTHER CARDS --- */
         .card {
             background: white;
             padding: 30px;
@@ -230,6 +229,17 @@
             font-size: 1.3rem;
         }
 
+        /* Contact Links */
+        .contact-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -237,11 +247,9 @@
     <!-- NAVIGATION BAR -->
     <nav>
         <div class="nav-container">
-            <!-- 1. Added your name to the left -->
             <div class="nav-name">Mohamed Ali</div>
             
             <div class="nav-links">
-                <!-- Changed links to work as anchor scrolls -->
                 <a class="nav-link active" href="#home">Home</a>
                 <a class="nav-link" href="#about">About</a>
                 <a class="nav-link" href="#skills">Skills</a>
@@ -259,18 +267,14 @@
 
         <!-- HOME SECTION -->
         <section id="home">
-            <!-- 2. Added Hello and Name here -->
             <div class="hello-text">Hello, I'm</div>
             <h1 class="hero-title">Mohamed Ali</h1>
             <h2 class="hero-subtitle">Cybersecurity & AI Student</h2>
             
             <p class="hero-description">
-                Computer Engineering Technology graduate with hands-on experience in 
-                software development, networking, computer hardware, and embedded 
-                systems, currently pursuing Cybersecurity and AI studies.
+                I am a Computer Engineering Technology graduate with hands-on experience in software development, networking, computer hardware, and embedded systems, currently pursuing Cybersecurity and AI studies. I am also a graduate of Mechanical Engineering Technician, where I learned to create and export 3D objects to a CNC machine and have some hands-on experience in hydraulics.
             </p>
 
-            <!-- 2. Added Buttons that scroll to the correct sections -->
             <div class="button-group">
                 <a href="#projects" class="btn btn-primary">View My Projects</a>
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
@@ -282,9 +286,7 @@
             <h2 class="section-heading">About Me</h2>
             <h2 class="section-title-large">Who I Am</h2>
             <p style="font-size: 1.1rem; color: #4b5563; max-width: 800px;">
-                Hello! I am a passionate technology enthusiast bridging the gap between hardware and software. 
-                With a background in Computer Engineering Technology, I love solving complex problems and building secure systems. 
-                I am constantly learning and adapting to new technologies in the cybersecurity and AI space.
+                Hello! I am a passionate technology enthusiast that is learning the gap between hardware and software. With a background in Computer Engineering Technology, I love solving complex problems and building secure systems. I am constantly learning and adapting to new technologies in the cybersecurity and AI space. Also, with a background in Mechanical Engineering Technician, I have some expertise in Hydraulics and Hass/CNC Machines.
             </p>
         </section>
 
@@ -351,21 +353,28 @@
                         <span class="tag">Vivado</span>
                     </div>
                 </div>
+
+                <!-- NEW MECHANICAL SKILLS CARD -->
+                <div class="skill-card">
+                    <div class="icon-box">⚙️</div>
+                    <h3>Mechanical & CNC</h3>
+                    <div class="tags-container">
+                        <span class="tag">Hydraulics</span>
+                        <span class="tag">Haas/CNC Machines</span>
+                        <span class="tag">3D Modeling</span>
+                        <span class="tag">Mechanical Engineering</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- PROJECTS SECTION -->
+        <!-- PROJECTS SECTION (Cleared as requested) -->
         <section id="projects">
             <h2 class="section-heading">My Work</h2>
             <h2 class="section-title-large">Featured Projects</h2>
-            <div class="card">
-                <h3>Project 1: IoT Security Device</h3>
-                <p>Designed a home security sensor using Raspberry Pi that detects motion and sends alerts to a mobile app.</p>
-            </div>
-            <div class="card">
-                <h3>Project 2: AI Image Classifier</h3>
-                <p>Built a Python script using TensorFlow to classify images of hardware components.</p>
-            </div>
+            <p style="color: #64748b; font-style: italic;">
+                Projects are currently being updated. Please check back soon!
+            </p>
         </section>
 
         <!-- EXPERIENCE SECTION -->
@@ -373,8 +382,9 @@
             <h2 class="section-heading">Experience</h2>
             <h2 class="section-title-large">Where I've Worked</h2>
             <div class="card">
-                <h3>IT Support Intern</h3>
-                <p>Troubleshot network connectivity issues and maintained hardware inventories.</p>
+                <h3>Construction Worker</h3>
+                <p style="color: #2563eb; font-weight: 600; margin-bottom: 10px;">Zammer Drywall & Construction</p>
+                <p>Gained knowledge in drywall installation and simple construction projects/work involving mud, paint, and carpentry.</p>
             </div>
         </section>
 
@@ -382,9 +392,18 @@
         <section id="education">
             <h2 class="section-heading">Education</h2>
             <h2 class="section-title-large">My Academic Background</h2>
+            
             <div class="card">
-                <h3>B.S. Computer Engineering Technology</h3>
-                <p>Graduated with honors. Focus on Embedded Systems and Networking.</p>
+                <h3>Computer Engineering Technology - Advanced Diploma</h3>
+            </div>
+
+            <div class="card">
+                <h3>Mechanical Engineering Technician - Diploma</h3>
+            </div>
+
+            <div class="card">
+                <h3>High School Diploma</h3>
+                <p style="color: #2563eb; font-weight: 600;">Emery C.I.</p>
             </div>
         </section>
 
@@ -393,8 +412,7 @@
             <h2 class="section-heading">Awards</h2>
             <h2 class="section-title-large">Achievements</h2>
             <div class="card">
-                <p>🏆 Dean's List (2021-2023)</p>
-                <p>🏆 Best Capstone Project Nominee</p>
+                <p style="color: #64748b; font-style: italic;">No awards to display at this time.</p>
             </div>
         </section>
 
@@ -403,9 +421,14 @@
             <h2 class="section-heading">Contact</h2>
             <h2 class="section-title-large">Get In Touch</h2>
             <div class="card">
-                <p>Email: yourname@example.com</p>
-                <p>LinkedIn: linkedin.com/in/yourprofile</p>
-                <p>GitHub: github.com/MohamedAli0760</p>
+                <p style="margin-bottom: 15px;">
+                    <strong>Email:</strong> 
+                    <a href="mailto:ma921833@gmail.com" class="contact-link">ma921833@gmail.com</a>
+                </p>
+                <p>
+                    <strong>LinkedIn:</strong> 
+                    <a href="https://www.linkedin.com/in/mohamed-ali-30bbb739a/" target="_blank" class="contact-link">linkedin.com/in/mohamed-ali-30bbb739a</a>
+                </p>
             </div>
         </section>
 
@@ -413,7 +436,6 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // This script simply highlights the correct menu item when you scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -422,7 +444,6 @@
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                // Adjust the offset to trigger the highlight correctly
                 if (scrollY >= sectionTop - 150) {
                     current = section.getAttribute('id');
                 }
